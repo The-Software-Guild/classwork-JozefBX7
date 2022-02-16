@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class RockPaperScissors {
 
     private final String[] CHOICES = {"ROCK", "PAPER", "SCISSORS"};
+    private final String[] OUTCOME_MESSAGES = {"crushed", "nullified", "cut up"};
 
     public static void main(String[] args) {
         RockPaperScissors rps = new RockPaperScissors();
@@ -80,11 +81,11 @@ public class RockPaperScissors {
                         break;
                     case 1:
                         playerScore++;
-                        print(String.format("You WON this round! Your %s beat the computer's %s!", CHOICES[playerChoice-1], CHOICES[computerChoice-1]));
+                        print(String.format("You WON this round! Your %s %s the computer's %s!", CHOICES[playerChoice-1], OUTCOME_MESSAGES[playerChoice-1], CHOICES[computerChoice-1]));
                         break;
                     case 2:
-                        print(String.format("You LOST this round! The computer's %s beat your %s!", CHOICES[computerChoice-1], CHOICES[playerChoice-1]));
                         computerScore++;
+                        print(String.format("You LOST this round! The computer's %s %s your %s!", CHOICES[computerChoice-1], OUTCOME_MESSAGES[computerChoice-1], CHOICES[playerChoice-1]));
                         break;
                 }
                 System.out.println("___________________________________________________"); //  line between rounds
@@ -92,7 +93,7 @@ public class RockPaperScissors {
 
             // print an appropriate message after all the rounds have completed
             String result = playerScore > computerScore ? "WON" : "LOST";
-            if(playerScore > computerScore) {
+            if(playerScore != computerScore) {
                 print(String.format("GAME OVER! You %s with a score of %d wins to %d and %d ties!", result, playerScore, computerScore, ties));
             } else {
                 print(String.format("GAME OVER! UNBELIEVABLE! You DREW with equal wins of %d each and %d ties!", playerScore, ties));
