@@ -34,7 +34,7 @@ public class WindowMaster {
                 valid = true;
             } catch(InputMismatchException ex) {
                 System.out.println("You did not enter a valid number. Try again:");
-                in.next();
+                in.nextLine();
             }
         }
 
