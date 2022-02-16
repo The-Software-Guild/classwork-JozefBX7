@@ -91,10 +91,9 @@ public class RockPaperScissors {
             }
 
             // print an appropriate message after all the rounds have completed
+            String result = playerScore > computerScore ? "WON" : "LOST";
             if(playerScore > computerScore) {
-                print(String.format("GAME OVER! You WON with a score of %d wins to %d and %d ties!", playerScore, computerScore, ties));
-            } else if(computerScore > playerScore) {
-                print(String.format("GAME OVER! You LOST with a score of %d wins to %d and %d ties!", playerScore, computerScore, ties));
+                print(String.format("GAME OVER! You %s with a score of %d wins to %d and %d ties!", result, playerScore, computerScore, ties));
             } else {
                 print(String.format("GAME OVER! UNBELIEVABLE! You DREW with equal wins of %d each and %d ties!", playerScore, ties));
             }
