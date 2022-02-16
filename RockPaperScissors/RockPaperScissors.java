@@ -13,7 +13,7 @@ public class RockPaperScissors {
         rps.play();
     }
 
-    public void play() {
+    private void play() {
         // scanner to read player's inputs
         Scanner in = new Scanner(System.in);
         print("Welcome to Rock Paper Scissors!");
