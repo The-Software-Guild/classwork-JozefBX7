@@ -35,13 +35,15 @@ public class RockPaperScissors {
                 numRounds = safeIntInput(in);
                 validRounds = numRounds >= 1 && numRounds <= 10;
                 if(!validRounds) {
-                    // edited this block to quit as per the requirement, but kept the code for asking again
-
                     //System.out.print("Invalid input. You can only choose between 1 and 10 rounds. Try again: ");
+
+                    /// edited this block to quit as per the requirement, but kept the code for asking again in place
+                    ///
                     System.out.print("Invalid choice. You can only choose between 1 and 10 rounds. You can't follow instructions so I'm leaving!");
-                    // close the scanner as cleanup
+                    // close the scanner as cleanup and return
                     in.close();
                     return;
+                    ///
                 }
             }  while(!validRounds);
 
@@ -66,12 +68,12 @@ public class RockPaperScissors {
                 } while(!validChoice);
 
                 // Randomly pick for the computer and display their choice to the player
-                int computerChoice = ComputerChoice();
+                int computerChoice = computerChoice();
                 print(String.format("This computer chose %s!", CHOICES[computerChoice-1]));
                 // 1 = rock, 2 = paper, 3 = scissors
 
                 // print the result of the round
-                switch (ComputeOutcome(playerChoice, computerChoice)) {
+                switch (computeOutcome(playerChoice, computerChoice)) {
                     case 0:
                         ties++;
                         print(String.format("It was a tie! You both chose %s!", CHOICES[playerChoice-1]));
@@ -111,12 +113,12 @@ public class RockPaperScissors {
         in.close();
     }
 
-    private int ComputerChoice() {
+    private int computerChoice() {
         final Random rnd = new Random();
         return 1 + rnd.nextInt(3);
     }
 
-    private int ComputeOutcome(int player1, int player2) {
+    private int computeOutcome(int player1, int player2) {
         // 0 = tie, 1 = player1, 2 = player2
 
         if(player1 == player2) return 0; // same choice = tie
